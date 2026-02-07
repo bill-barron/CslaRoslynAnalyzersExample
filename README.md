@@ -36,7 +36,7 @@ This project includes three analyzers that detect and warn about CSLA usage viol
 Detects when a class inherits from any CSLA base class.
 
 ```csharp
-// ? This triggers CSLA001
+// This triggers CSLA001
 public class WebCustomer : DataCustomer  // DataCustomer inherits from Csla.BusinessBase
 {
 }
@@ -48,7 +48,7 @@ public class WebCustomer : DataCustomer  // DataCustomer inherits from Csla.Busi
 Detects when public/protected properties expose CSLA-based types.
 
 ```csharp
-// ? This triggers CSLA002
+// This triggers CSLA002
 public class WebOrderPresenter
 {
     public DataCustomer Customer { get; set; }  // DataCustomer is CSLA-based
@@ -61,7 +61,7 @@ public class WebOrderPresenter
 Detects when public/protected methods have CSLA-based parameters.
 
 ```csharp
-// ? This triggers CSLA003
+// This triggers CSLA003
 public class WebOrderPresenter
 {
     public void ProcessOrder(DataCustomer customer)  // CSLA parameter
@@ -77,21 +77,20 @@ public class WebOrderPresenter
 
 ```
 ExampleApp/
-??? ExampleApp.Analyzers/          # The Roslyn analyzer project (.NET Standard 2.0)
-?   ??? CslaInheritanceAnalyzer.cs
-?   ??? CslaPropertyAnalyzer.cs
-?   ??? CslaMethodParameterAnalyzer.cs
-?   ??? CslaDiagnostics.cs         # Diagnostic descriptors
-?
-??? ExampleApp.Data/               # Data layer with CSLA objects (.NET Framework 4.8)
-?   ??? DataCustomer.cs            # CSLA BusinessBase
-?   ??? DataChildCustomer.cs       # Inherits from DataCustomer
-?   ??? DataOrder.cs               # Uses CSLA types freely (no warnings)
-?
-??? ExampleApp.Web/                # UI/Web layer (.NET Framework 4.8)
-    ??? WebCustomer.cs             # ? Inherits from CSLA (CSLA001)
-    ??? WebOrderPresenter.cs       # ? Bad example - violates CSLA002 & CSLA003
-    ??? WebOrderViewModel.cs       # ? Good example - uses DTOs
+   ExampleApp.Analyzers/          # The Roslyn analyzer project (.NET Standard 2.0)
+      CslaInheritanceAnalyzer.cs
+      CslaPropertyAnalyzer.cs
+      CslaMethodParameterAnalyzer.cs
+      CslaDiagnostics.cs          # Diagnostic descriptors
+   ExampleApp.Data/               # Data layer with CSLA objects (.NET Framework 4.8)
+      DataCustomer.cs             # CSLA BusinessBase
+      DataChildCustomer.cs        # Inherits from DataCustomer
+      DataOrder.cs                # Uses CSLA types freely (no warnings)
+
+   ExampleApp.Web/                # UI/Web layer (.NET Framework 4.8)
+      WebCustomer.cs              # Inherits from CSLA (CSLA001)
+      WebOrderPresenter.cs        # Bad example - violates CSLA002 & CSLA003
+      WebOrderViewModel.cs        # Good example - uses DTOs
 ```
 
 ## Key Demonstration Points
@@ -109,7 +108,7 @@ The analyzers **only analyze projects that reference them**:
 
 ### Good vs Bad Patterns
 
-**? Bad (WebOrderPresenter.cs)** - Violates architectural boundaries:
+** Bad (WebOrderPresenter.cs)** - Violates architectural boundaries:
 ```csharp
 public class WebOrderPresenter
 {
@@ -122,7 +121,7 @@ public class WebOrderPresenter
 }
 ```
 
-**? Good (WebOrderViewModel.cs)** - Proper separation:
+** Good (WebOrderViewModel.cs)** - Proper separation:
 ```csharp
 public class WebOrderViewModel
 {

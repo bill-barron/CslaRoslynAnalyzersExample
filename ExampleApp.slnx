@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ExampleApp.Analyzers/ExampleApp.Analyzers.csproj" />
+  <Project Path="ExampleApp.Data/ExampleApp.Data.csproj" />
+  <Project Path="ExampleApp.Web/ExampleApp.Web.csproj" />
+</Solution>

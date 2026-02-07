@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Files/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="ExampleApp.Analyzers/ExampleApp.Analyzers.csproj" />
   <Project Path="ExampleApp.Data/ExampleApp.Data.csproj" />
   <Project Path="ExampleApp.Web/ExampleApp.Web.csproj" />

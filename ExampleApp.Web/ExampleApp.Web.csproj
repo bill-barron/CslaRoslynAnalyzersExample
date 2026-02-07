@@ -164,7 +164,10 @@
     <Compile Include="WebOrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExampleApp.Analyzers\ExampleApp.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\ExampleApp.Analyzers\ExampleApp.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
+      <Project>{BCE92044-C3AF-4801-A807-A31EFF8DE3FF}</Project>
+      <Name>ExampleApp.Analyzers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExampleApp.Data\ExampleApp.Data.csproj">
       <Project>{dc24fb43-a94d-4c97-bd66-09e822bbb532}</Project>
       <Name>ExampleApp.Data</Name>
